@@ -1,6 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Main {
     public Main() {}
@@ -43,15 +45,23 @@ public class Main {
         buttonPanel.add(onlineMultiplayer);
         topPanel.add(buttonPanel);
 
-        // Settings Panel
+        // Settings Panel (Updated with Settings Button)
         JPanel settingsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        JLabel settingsLabel = new JLabel("Settings");
+        JButton settingsButton = new JButton("Settings");
         JButton timerButton = new JButton("Timer");
         JButton instructionButton = new JButton("Instruction Moral");
-        settingsPanel.add(settingsLabel);
+        settingsPanel.add(settingsButton);
         settingsPanel.add(timerButton);
         settingsPanel.add(instructionButton);
         topPanel.add(settingsPanel);
+
+        // Action Listener for Settings Button
+        settingsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openSettingsMenu(frame); // Open the settings menu
+            }
+        });
 
         // ---- Center Panel (Player Selection) ----
         JPanel centerPanel = new JPanel();
@@ -103,4 +113,31 @@ public class Main {
         // Make frame visible
         frame.setVisible(true);
     }
+
+        // Method to show settings menu
+        private static void openSettingsMenu(JFrame parentFrame) {
+            // Create a pop-up dialog
+            JDialog settingsDialog = new JDialog(parentFrame, "Settings", true);
+            settingsDialog.setSize(300, 200);
+            settingsDialog.setLayout(new FlowLayout());
+
+            // Create buttons for Display and Player settings
+            JButton displaySettingsButton = new JButton("Display Settings");
+            JButton playerSettingsButton = new JButton("Player Settings");
+
+            // Add action listener to open DisplaySettings
+            displaySettingsButton.addActionListener(e -> {
+                settingsDialog.dispose(); // Close the settings dialog before opening the display settings
+                new DisplaySettings(); // Open display settings
+            });
+
+            // Add buttons to the dialog
+            settingsDialog.add(displaySettingsButton);
+            settingsDialog.add(playerSettingsButton);
+
+            // Show dialog
+            settingsDialog.setLocationRelativeTo(parentFrame);
+            settingsDialog.setVisible(true);
+        }
+    
 }
