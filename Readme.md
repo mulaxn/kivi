@@ -1,6 +1,21 @@
-Some changes to the actual GUI from the UI Sketch
+# Game GUI Updates
 
-implemented Bobblehead instead of avatars
-logo isn't atteched yet according to the UI sketch for the game
-added an extra option in the first interface which provides an option for the user to choose how many players to start off the game with
-impelemented a separate settings option for Display Settings and Player Settings
+## Changes from the UI Sketch
+
+The following modifications have been made to the actual GUI compared to the original UI sketch:
+
+1. **Bobblehead Implementation**
+   - Replaced avatars with bobblehead figures.
+
+2. **Logo Status**
+   - The game logo is not yet attached as per the original UI sketch.
+
+3. **Player Selection Option**
+   - Added an extra option in the first interface that allows users to select the number of players before starting the game.
+
+4. **Separate Settings Options**
+   - Implemented a distinct settings section for:
+     - **Display Settings**
+     - **Player Settings**
+
+These changes improve the customization and overall user experience of the game interface.
