@@ -30,7 +30,7 @@ public class DisplaySettings extends JFrame implements ActionListener {
         // Theme Selection
         panel.add(new JLabel("Theme:"), gbc);
         gbc.gridx = 1;
-        String[] themes = {"Light Mode", "Dark Mode"};
+        String[] themes = { "Light Mode", "Dark Mode" };
         themeBox = new JComboBox<>(themes);
         panel.add(themeBox, gbc);
 
@@ -39,7 +39,7 @@ public class DisplaySettings extends JFrame implements ActionListener {
         gbc.gridy++;
         panel.add(new JLabel("Piece Style:"), gbc);
         gbc.gridx = 1;
-        String[] styles = {"Classic", "Modern", "Wooden"};
+        String[] styles = { "Classic", "Modern", "Wooden" };
         pieceStyleBox = new JComboBox<>(styles);
         panel.add(pieceStyleBox, gbc);
 
@@ -109,5 +109,3 @@ public class DisplaySettings extends JFrame implements ActionListener {
         SwingUtilities.invokeLater(DisplaySettings::new);
     }
 }
-
-
