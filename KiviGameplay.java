@@ -623,20 +623,22 @@ public class KiviGameplay extends JFrame {
                         }
                         // Use placeLogic to see if valid
                         if (placeLogic.isValidPlacement(squareType, selValues)) {
-                            // Now actually place the piece
-                            placeLogic.placePiece(i, j, currentStoneRow, currentStoneCol, currentStone);
-
-                            // Update KiviGameplay references
-                            currentStoneRow = i;
-                            currentStoneCol = j;
-                            // Create a new StonePanel if needed
+                            // 1) If the stone isn't created, create it now
                             if (currentStone == null) {
                                 currentStone = new StonePanel(playerColors[currentPlayer]);
                                 currentStone.setPreferredSize(new Dimension(40, 40));
-                                boardSquares[i][j].add(currentStone, BorderLayout.CENTER);
-                                boardSquares[i][j].revalidate();
-                                boardSquares[i][j].repaint();
                             }
+
+                            // 2) Now place it
+                            placeLogic.placePiece(i, j, currentStoneRow, currentStoneCol, currentStone);
+
+                            // 3) Update your row/col tracking and repaint
+                            currentStoneRow = i;
+                            currentStoneCol = j;
+
+                            // (No need to add currentStone directly in handleCpuTurn now,
+                            // since placePiece(...) already does the add(...) call)
+
                             placed = true;
                         }
                     }
