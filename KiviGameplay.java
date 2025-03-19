@@ -10,7 +10,7 @@ public class KiviGameplay extends JFrame {
     private JPanel dicePanel;
     private JButton[] dice;
     private JButton rollDiceButton, endTurnButton;
-    private JButton pauseButton, resumeButton;
+    private JButton pauseButton, resumeButton, saveButton; // Added saveButton
     private JPanel playerInfoPanel;
     private JLabel currentPlayerLabel, timerLabel;
 
@@ -235,6 +235,14 @@ public class KiviGameplay extends JFrame {
         resumeButton.addActionListener(e -> resumeGame());
         resumeButton.setEnabled(false);
         dicePanel.add(resumeButton);
+
+        // Add the "Save" button
+        saveButton = new JButton("Save");
+        saveButton.addActionListener(e -> {
+            // Placeholder for save functionality
+            System.out.println("Save button clicked. Functionality not implemented yet.");
+        });
+        dicePanel.add(saveButton);
 
         add(dicePanel, BorderLayout.SOUTH);
     }
