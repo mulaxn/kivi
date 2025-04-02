@@ -1,6 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
 /**
  * A helper class to manage all piece-placement logic on the board:
@@ -103,10 +103,23 @@ public class PlaceAPiece {
                     sum += value;
                 return sum >= 30;
             }
-            case "=1,3,5":
-                return (selectedValues.contains(1) && selectedValues.contains(3) && selectedValues.contains(5));
-            case "=2,4,6":
-                return (selectedValues.contains(2) && selectedValues.contains(4) && selectedValues.contains(6));
+            case "=1,3,5": {
+                // Must use all 6 dice and all values must be odd.
+                if (selectedValues.size() != 6) return false;
+                for (int value : selectedValues) {
+                    if (value % 2 == 0) return false;
+                }
+                return true;
+            }
+            case "=2,4,6": {
+                // Must use all 6 dice and all values must be even.
+                if (selectedValues.size() != 6) return false;
+                for (int value : selectedValues) {
+                    if (value % 2 != 0) return false;
+                }
+                return true;
+            }
+            
             case "ABCDE":
                 return (selectedValues.contains(1) && selectedValues.contains(2) &&
                         selectedValues.contains(3) && selectedValues.contains(4) &&
